@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/W557ygc/Rectangle-2-2.png",
+        "course": "Introduction to Programming",
+        "credit": 3,
+        "price": 199.99,
+        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/dLfzN3h/Rectangle-2-3.png",
+        "course": "Web Development",
+        "credit": 4,
+        "price": 249.99,
+        "details": "Learn the basics of web development and HTML/CSS."
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/rMM466T/Rectangle-2-4.png",
+        "course": "Introduction to C++ for DSA",
+        "credit": 5,
+        "price": 299.99,
+        "details": "An introductory course to data science and analytics."
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/qxcBftZ/Rectangle-3.png",
+        "course": "Mobile App Development",
+        "credit": 3,
+        "price": 219.99,
+        "details": "Create your first mobile app from scratch."
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/cQ1qCby/Rectangle-2.png",
+        "course": "Machine Learning",
+        "credit": 4,
+        "price": 269.99,
+        "details": "Explore the world of machine learning and AI."
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/SNqMrh0/Rectangle-2-5.png",
+        "course": "Software Engineering",
+        "credit": 3,
+        "price": 199.99,
+        "details": "Master online marketing strategies and techniques."
+    },
+    {
+        "id": 7,
+        "img": "https://i.ibb.co/YX39D16/Rectangle-3-1.png",
+        "course": "Graphic Design Basics",
+        "credit": 2,
+        "price": 149.99,
+        "details": "Get started with graphic design and creative tools."
+    },
+    {
+        "id": 8,
+        "img": "https://i.ibb.co/Vv43JRw/Rectangle-2-1.png",
+        "course": "Business Management",
+        "credit": 4,
+        "price": 299.99,
+        "details": "Learn the essentials of effective business management."
+    },
+    {
+        "id": 9,
+        "img": "https://i.ibb.co/ChBfwVZ/Rectangle-2-6.png",
+        "course": "English Language Proficiency",
+        "credit": 2,
+        "price": 149.99,
+        "details": "Improve your English language skills for various purposes."
+    }
+]
