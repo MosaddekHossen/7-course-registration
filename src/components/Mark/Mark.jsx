@@ -1,5 +1,6 @@
 
 const Mark = ({ title }) => {
+    let count = 0;
     return (
         <div>
             <div className="p-5 bg-white rounded-lg">
@@ -9,7 +10,8 @@ const Mark = ({ title }) => {
                 <h3 className="text-[#1C1B1B] font-bold text-[20px] py-4">Course Name</h3>
                 {
                     title.map(element => (
-                        <p key={element.id}>{element.id} {element.course}</p>
+                        count += 1,
+                        <p key={count}>{count} {element.course}</p>
                     ))
                 }
                 <div className="border-y-2 mt-4">
