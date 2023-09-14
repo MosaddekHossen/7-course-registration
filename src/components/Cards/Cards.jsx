@@ -4,13 +4,18 @@ import './Cards.css'
 import { useState } from "react";
 
 const Cards = () => {
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    const [title, setTitle] = useState([]);
 
     useEffect(() => {
         fetch('data.json')
             .then(res => res.json())
             .then(data => setCart(data))
-    }, [])
+    }, []);
+
+    const handleSelect = (item) => {
+        setTitle([...title, item])
+    }
 
     return (
         <>
@@ -26,14 +31,16 @@ const Cards = () => {
                                     <h6 className="flex justify-evenly"><span>0</span> <span>Price : {item.price}</span> <span>0</span> <span className="text-right">Credit : {item.credit}hr</span></h6>
                                 </div>
                                 <div className="text-center mt-3">
-                                    <button className="bg-[#2F80ED] text-white px-8 py-2 w-full text-[18px] rounded-lg">Select</button>
+                                    <button onClick={() => handleSelect(item)} className="bg-[#2F80ED] text-white px-8 py-2 w-full text-[18px] rounded-lg">Select</button>
                                 </div>
                             </div>
                         ))
                     }
                 </div>
                 <div className="w-1/4">
-                    <Mark></Mark>
+                    <Mark
+                        title={title}
+                    ></Mark>
                 </div>
             </div>
         </>
