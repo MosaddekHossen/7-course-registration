@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
 import Mark from "../Mark/Mark";
 import './Cards.css'
 import { useState } from "react";
@@ -6,6 +6,7 @@ import { useState } from "react";
 const Cards = () => {
     const [cart, setCart] = useState([]);
     const [title, setTitle] = useState([]);
+    const [credit, setCredit] = useState([]);
 
     useEffect(() => {
         fetch('data.json')
@@ -13,8 +14,13 @@ const Cards = () => {
             .then(data => setCart(data))
     }, []);
 
-    const handleSelect = (item) => {
+    const handleSelect = (item, item2) => {
+        const isExist = title.find(tit => tit.id === item.id);
+        if (isExist) {
+            return alert("Allready this course name is exist!")
+        }
         setTitle([...title, item])
+        setCredit([...credit, item2])
     }
 
     return (
@@ -31,7 +37,9 @@ const Cards = () => {
                                     <h6 className="flex justify-evenly"><span>0</span> <span>Price : {item.price}</span> <span>0</span> <span className="text-right">Credit : {item.credit}hr</span></h6>
                                 </div>
                                 <div className="text-center mt-3">
-                                    <button onClick={() => handleSelect(item)} className="bg-[#2F80ED] text-white px-8 py-2 w-full text-[18px] rounded-lg">Select</button>
+                                    <button onClick={
+                                        () => handleSelect(item, item)
+                                    } className="bg-[#2F80ED] text-white px-8 py-2 w-full text-[18px] rounded-lg">Select</button>
                                 </div>
                             </div>
                         ))
@@ -40,6 +48,7 @@ const Cards = () => {
                 <div className="w-1/4">
                     <Mark
                         title={title}
+                        credit={credit}
                     ></Mark>
                 </div>
             </div>

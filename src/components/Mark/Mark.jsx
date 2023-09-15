@@ -1,5 +1,6 @@
 
-const Mark = ({ title }) => {
+const Mark = ({ title,credit }) => {
+    // console.log(credit)
     let count = 0;
     return (
         <div>
