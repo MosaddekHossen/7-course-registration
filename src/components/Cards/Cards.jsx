@@ -6,7 +6,8 @@ import { useState } from "react";
 const Cards = () => {
     const [cart, setCart] = useState([]);
     const [title, setTitle] = useState([]);
-    const [credit, setCredit] = useState([]);
+    const [credit, setCredit] = useState(0);
+    const [remaining, setRemaining] = useState(20);
 
     useEffect(() => {
         fetch('data.json')
@@ -14,13 +15,23 @@ const Cards = () => {
             .then(data => setCart(data))
     }, []);
 
-    const handleSelect = (item, item2) => {
+    const handleSelect = (item) => {
+        let creditCount = item.credit;
         const isExist = title.find(tit => tit.id === item.id);
         if (isExist) {
-            return alert("Allready this course name is exist!")
+            return alert("Already this course name is exist!")
         }
+        title.forEach(element => {
+            creditCount += element.credit;
+        })
+        if (creditCount > 20) {
+            alert('Credit count is greater than twenty so stop!')
+        }
+        console.log(creditCount)
+        setCredit(creditCount);
+        setRemaining(20 - creditCount);
+
         setTitle([...title, item])
-        setCredit([...credit, item2])
     }
 
     return (
@@ -49,6 +60,7 @@ const Cards = () => {
                     <Mark
                         title={title}
                         credit={credit}
+                        remaining={remaining}
                     ></Mark>
                 </div>
             </div>
