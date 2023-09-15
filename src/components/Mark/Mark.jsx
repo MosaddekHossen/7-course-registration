@@ -1,6 +1,6 @@
 
-const Mark = ({ title, credit, remaining }) => {
-    // console.log(credit)
+const Mark = ({ title, credit, remaining, totalPrice }) => {
+    const roundedValue = totalPrice.toFixed(2);
     let count = 0;
     return (
         <div>
@@ -19,7 +19,7 @@ const Mark = ({ title, credit, remaining }) => {
                     <h3 className="font-semibold text-[18px] py-4">Total Credit Hour : {credit}</h3>
                 </div>
                 <div className="border-b-2">
-                    <h3 className="font-semibold text-[18px] py-3">Total Price : 48000 USD</h3>
+                    <h3 className="font-semibold text-[18px] py-3">Total Price : {roundedValue} USD</h3>
                 </div>
             </div>
         </div>

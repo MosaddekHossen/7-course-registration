@@ -8,6 +8,7 @@ const Cards = () => {
     const [title, setTitle] = useState([]);
     const [credit, setCredit] = useState(0);
     const [remaining, setRemaining] = useState(20);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         fetch('data.json')
@@ -16,22 +17,30 @@ const Cards = () => {
     }, []);
 
     const handleSelect = (item) => {
+        // Default Credit count variable value
         let creditCount = item.credit;
+        let priceCount = item.price;
         const isExist = title.find(tit => tit.id === item.id);
+        // Show alert when exist same course name
         if (isExist) {
             return alert("Already this course name is exist!")
         }
+        // Credit count validation
         title.forEach(element => {
             creditCount += element.credit;
+            priceCount += element.price;
         })
         if (creditCount > 20) {
             alert('Credit count is greater than twenty so stop!')
         }
-        console.log(creditCount)
-        setCredit(creditCount);
+        // Alert remaining! When remaining value is <= 0 
         setRemaining(20 - creditCount);
-
-        setTitle([...title, item])
+        if (creditCount >= 20) {
+            alert('You have already exceeded zero credit hours!')
+        }
+        setTotalPrice(priceCount);
+        setCredit(creditCount);
+        setTitle([...title, item]);
     }
 
     return (
@@ -49,7 +58,7 @@ const Cards = () => {
                                 </div>
                                 <div className="text-center mt-3">
                                     <button onClick={
-                                        () => handleSelect(item, item)
+                                        () => handleSelect(item)
                                     } className="bg-[#2F80ED] text-white px-8 py-2 w-full text-[18px] rounded-lg">Select</button>
                                 </div>
                             </div>
@@ -61,6 +70,7 @@ const Cards = () => {
                         title={title}
                         credit={credit}
                         remaining={remaining}
+                        totalPrice={totalPrice}
                     ></Mark>
                 </div>
             </div>
